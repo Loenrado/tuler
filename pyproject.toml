@@ -1,0 +1,9 @@
+[project]
+name = "conflag"
+version = "0.1.0"
+description = "CLI + config application"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pytest>=8.3.4",
+]

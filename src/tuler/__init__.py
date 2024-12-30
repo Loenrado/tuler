@@ -16,7 +16,9 @@ from typing import (
 )
 import tomllib
 
-from conflag.help import Colors, help_table, process
+from colorama import Fore, Style
+
+from tuler.help import help_table, process
 
 if TYPE_CHECKING:
     from _typeshed import DataclassInstance
@@ -72,10 +74,10 @@ class _ShortOption:
 
 @dataclass
 class _HelpOption:
-    short_name: Annotated[str, process(ansi=Colors.BOLD_GREEN)]
-    names: Annotated[str, process(just="L", post="\t", ansi=Colors.BOLD_GREEN)]
+    short_name: Annotated[str, process(ansi=Style.BRIGHT + Fore.GREEN)]
+    names: Annotated[str, process(just="L", post="\t", ansi=Style.BRIGHT + Fore.GREEN)]
     hint: Annotated[str, process(just="L")]
-    default: Annotated[str, process(just="R", ansi=Colors.BOLD)]
+    default: Annotated[str, process(just="R", ansi=Style.BRIGHT)]
 
 
 @dataclass
@@ -139,7 +141,7 @@ class Flag:
 
 @dataclass
 class _HelpArgument:
-    name: Annotated[str, process(post="\t", ansi=Colors.BOLD_GREEN)]
+    name: Annotated[str, process(post="\t", ansi=Style.BRIGHT + Fore.GREEN)]
     hint: Annotated[str, process(just="L")]
 
 
@@ -186,7 +188,7 @@ def _option_name_type(token: str) -> _LongOption | _ShortOption | None:
 
 @dataclass
 class _HelpCommand:
-    name: Annotated[str, process(post="\t", ansi=Colors.BOLD_GREEN)]
+    name: Annotated[str, process(post="\t", ansi=Style.BRIGHT + Fore.GREEN)]
     hint: Annotated[str, process(just="R")]
 
 
@@ -209,13 +211,11 @@ class _Command:
 
     def _help_usage(self):
         return [
-            " ".join(
-                [
-                    "USAGE:",
-                    " ".join(self.path()),
-                    "<ARGUMENTS> [OPTIONS]",
-                ]
-            ),
+            " ".join([
+                "USAGE:",
+                " ".join(self.path()),
+                "<ARGUMENTS> [OPTIONS]",
+            ]),
             help_table(
                 _HelpArgument,
                 "ARGUMENTS",
@@ -430,13 +430,11 @@ class App[T: DataclassInstance]:
 
     def _help_usage(self):
         return [
-            " ".join(
-                [
-                    "USAGE:",
-                    " ".join(self._path),
-                    "<COMMAND> [OPTIONS]",
-                ]
-            ),
+            " ".join([
+                "USAGE:",
+                " ".join(self._path),
+                "<COMMAND> [OPTIONS]",
+            ]),
             help_table(
                 _HelpCommand,
                 "COMMANDS",

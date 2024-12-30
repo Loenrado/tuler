@@ -111,7 +111,7 @@ Arguments and options can be annotated to include additional metadata.
 ```python
 from dataclasses import dataclass
 from typing import Annotated
-from conflag import App, Argument, Flag, Option
+from tuler import App, Argument, Flag, Option
 
 @dataclass
 class GlobalOptionsTemplate:

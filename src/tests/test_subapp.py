@@ -1,5 +1,5 @@
 import pytest
-from conflag import App, _HelpError
+from tuler import App, _HelpError
 
 
 @pytest.mark.parametrize(

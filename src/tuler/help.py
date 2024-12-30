@@ -6,6 +6,7 @@ from typing import (
     TYPE_CHECKING,
     get_args,
 )
+from colorama import Fore, Style
 
 if TYPE_CHECKING:
     from _typeshed import DataclassInstance
@@ -54,36 +55,8 @@ def process(
     def __process(s: str, cs: int):
         match just:
             case "L":
-                return pre + ansi + s.ljust(cs) + Colors.END + post
+                return pre + ansi + s.ljust(cs) + Style.RESET_ALL + post
             case "R":
-                return pre + ansi + s.rjust(cs) + Colors.END + post
+                return pre + ansi + s.rjust(cs) + Style.RESET_ALL + post
 
     return __process
-
-
-class Colors:
-    BLACK = "\033[0;30m"
-    RED = "\033[0;31m"
-    GREEN = "\033[0;32m"
-    BOLD_GREEN = "\033[1;32m"
-    BROWN = "\033[0;33m"
-    BLUE = "\033[0;34m"
-    PURPLE = "\033[0;35m"
-    CYAN = "\033[0;36m"
-    LIGHT_GRAY = "\033[0;37m"
-    DARK_GRAY = "\033[1;30m"
-    LIGHT_RED = "\033[1;31m"
-    LIGHT_GREEN = "\033[1;32m"
-    YELLOW = "\033[1;33m"
-    LIGHT_BLUE = "\033[1;34m"
-    LIGHT_PURPLE = "\033[1;35m"
-    LIGHT_CYAN = "\033[1;36m"
-    LIGHT_WHITE = "\033[1;37m"
-    BOLD = "\033[1m"
-    FAINT = "\033[2m"
-    ITALIC = "\033[3m"
-    UNDERLINE = "\033[4m"
-    BLINK = "\033[5m"
-    NEGATIVE = "\033[7m"
-    CROSSED = "\033[9m"
-    END = "\033[0m"

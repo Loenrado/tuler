@@ -1,5 +1,5 @@
 [project]
-name = "conflag"
+name = "tuler"
 version = "0.1.0"
 description = "CLI + config application"
 readme = "README.md"

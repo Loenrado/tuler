@@ -5,8 +5,6 @@ __A tool for building python CLIs__
 Tuler is heavily inspired by Typer, another CLI tool, with a few key differences.
 
 Here is the basic pattern for Tuler.
-
-_foo.py_
 ```python
 from tuler import App
 
@@ -29,8 +27,6 @@ hey friend!
 `@app.command()` registers `greet_friend` as a command in `app`. `app.run()` will parse `sys.argv` and either run `greet_friend()` or display a help message.
 
 You can register multiple commands that use arguments and options.
-
-_foo.py_
 ```python
 from tuler import App
 
@@ -80,8 +76,6 @@ GREET_WITH_MESSAGE OPTIONS:
 ```
 
 Tuler handles global options by using templates.
-
-_foo.py_
 ```python
 from tuler import App
 from dataclasses import dataclass
@@ -114,8 +108,6 @@ directory: /dev/
 A template is a dataclass that lays out options via fields. All fields must have default values. When a template is passed into App(), app.opts is the initialized template dataclass with the values of your options.
 
 Arguments and options can be annotated to include additional metadata.
-
-_foo.py_
 ```python
 from dataclasses import dataclass
 from typing import Annotated
@@ -185,8 +177,6 @@ Argument <X> did not pass validation!
 ```
 
 You can also pass in a configuration toml file to App().
-
-_foo.py_
 ```python
 from tuler import App
 from dataclasses import dataclass
@@ -209,7 +199,7 @@ def greet_with_message(name, message="my friend!"):
 if __name__ == "__main__":
     app.run()
 ```
-_config.toml_
+_config.toml:_
 ```toml
 verbose = true
 foo = "bazz"

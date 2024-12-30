@@ -24,7 +24,7 @@ hey friend!
 ```
 
 
-`@app.command()`{:.python} registers `greet_friend`{:.python} as a command in `app`{:.python}. `app.run()`{:.python} will parse `sys.argv`{:.python} and either run `greet_friend()`{:.python} or display a help message.
+`@app.command()` registers `greet_friend` as a command in `app`. `app.run()` will parse `sys.argv` and either run `greet_friend()` or display a help message.
 
 You can register multiple commands that use arguments and options.
 ```python

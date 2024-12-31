@@ -65,7 +65,7 @@ COMMANDS:
 ```console
 $ python3 foo.py greet_friend --help
 
-USAGE: src/demo2.py greet_with_message <ARGUMENTS> [OPTIONS]
+USAGE: foo.py greet_with_message <ARGUMENTS> [OPTIONS]
 
 ARGUMENTS:
    <NAME>

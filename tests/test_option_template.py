@@ -1,6 +1,5 @@
-from dataclasses import dataclass, field
-from typing import Annotated
-from tuler import _HelpError, App, Argument, Flag, Option
+from dataclasses import dataclass
+from tuler import _HelpError, App
 import pytest
 
 

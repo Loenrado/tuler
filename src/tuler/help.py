@@ -6,7 +6,7 @@ from typing import (
     TYPE_CHECKING,
     get_args,
 )
-from colorama import Fore, Style
+from colorama import Style
 
 if TYPE_CHECKING:
     from _typeshed import DataclassInstance

@@ -15,7 +15,7 @@ from tuler import App, _HelpError
 )
 def test_subapp_with_no_commands_available(params):
     app = App()
-    sub = app.subapp("sub")
+    _ = app.subapp("sub")
 
     with pytest.raises(_HelpError):
         app.run(["./foo", *params], catch_help=False)

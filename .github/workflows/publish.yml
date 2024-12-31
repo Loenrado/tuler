@@ -37,9 +37,6 @@ jobs:
       - name: Build distributions
         run: uv build
 
-      - name: Upload distributions
-        run: uv publish
-
   pypi-publish:
     runs-on: ubuntu-latest
     needs:
